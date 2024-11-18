@@ -1,18 +1,23 @@
 {
-  "name": "gc-cli",
+  "name": "gc",
   "version": "1.0.0",
-  "description": "Cli tool for commit suggestion",
-  "exports": "./cli.js",
+  "description": "AI-powered Git commit message generator",
+  "main": "bin/gc.js",
   "type": "module",
-  "repository": "https://github.com/utsavdotdev/gc",
-  "license": "MIT",
-  "dependencies": {
-    "chalk": "^5.3.0",
-    "commander": "^12.1.0",
-    "inquirer": "^12.1.0",
-    "ora": "^8.1.1"
-  },
   "bin": {
-    "gc": "./cli.js"
+    "gc": "./bin/gc.js"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node bin/gc.js"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "inquirer": "^8.2.5",
+    "clipboardy": "^3.0.0",
+    "openai": "^4.0.0",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "simple-git": "^3.19.0"
   }
 }
