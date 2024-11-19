@@ -43,7 +43,8 @@ export const handleNewCommand = async () => {
     const action = await selectCommitAction();
     
     logger.step(4, 4, 'Processing action');
-    await handleAction(selectedMessage, action);    
+    await handleAction(selectedMessage, action);
+    
   } catch (error) {
     logger.error('Failed to generate commit message', error);
     process.exit(1);

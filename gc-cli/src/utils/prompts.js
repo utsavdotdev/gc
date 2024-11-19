@@ -17,7 +17,7 @@ const formatCommitType = async (message) => {
 
   return config.git.commitTemplate
     .replace('{type}', type)
-    .replace('{scope}', scope ? scope : '')
+    .replace('{scope}', scope ? `(${scope})` : '')
     .replace('{message}', message);
 };
 
@@ -32,6 +32,10 @@ export const selectCommitMessage = async (messages) => {
         value: msg,
         short: msg.substring(0, 50) + '...'
       })),
+      {
+        name: 'Regenerate Suggestions',
+        value: 'regenerate'
+      },
       {
         name: 'None of these (write my own)',
         value: 'custom'

@@ -1,17 +1,17 @@
 export const config = {
-  ai: {
-    model: 'gpt-3.5-turbo',
-    temperature: 0.7,
-    maxSuggestions: 3,
-    prompts: {
-      system: 'Generate clear, concise, and conventional git commit messages.',
-      user: 'Generate {count} different commit messages for the following git diff:\n{diff}'
-    }
-  },
+    ai: {
+        model: 'gpt-3.5-turbo',
+        temperature: 0.7,
+        maxSuggestions: 3,
+        prompts: {
+        system: 'Generate clear, concise, and conventional git commit messages.',
+        user: 'Generate {count} different commit messages for the following git diff:\n{diff}'
+        }
+    },
 
   git: {
     defaultBranch: 'main',
-    commitTemplate: '{type}({scope}): {message}',
+    commitTemplate: '{type}{scope}: {message}',
     conventionalCommitTypes: [
       'feat', 'fix', 'docs', 'style', 'refactor',
       'perf', 'test', 'build', 'ci', 'chore'
