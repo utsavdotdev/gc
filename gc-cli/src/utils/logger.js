@@ -21,7 +21,7 @@ const shouldLog = (level) => {
 export const logger = {
   step: (current, total, message) => {
     if (shouldLog('INFO')) {
-      console.log(`[${current}/${total}] ${message}...`);
+      console.log(`[${current}/${total}] ${message}`);
     }
   },
   done: (message) => {
