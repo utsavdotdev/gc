@@ -10,15 +10,7 @@ type CommandOutput = {
 export function Terminal() {
   const [command, setCommand] = useState("");
   const [history, setHistory] = useState<CommandOutput[]>([]);
-  const [cursorVisible, setCursorVisible] = useState(true);
   const terminalRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCursorVisible((v) => !v);
-    }, 530);
-    return () => clearInterval(timer);
-  }, []);
 
   useEffect(() => {
     if (terminalRef.current) {
@@ -107,7 +99,7 @@ export function Terminal() {
         default:
           output = (
             <p className="text-red-400 animate-fadeIn">
-              Command not found. Try 'gc info', 'gc features', or 'gc commands'
+              Command not found. Try gc info, gc features, or gc commands
             </p>
           );
       }
