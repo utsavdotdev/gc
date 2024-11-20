@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-gray-900 text-gray-100;
+  font-family: var(--font-poppins);
+}
+
+.neo-shadow {
+  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.4),
+    -8px -8px 16px rgba(255, 255, 255, 0.03);
+}
+
+.neo-shadow-sm {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
+    -4px -4px 8px rgba(255, 255, 255, 0.02);
+}
+
+.neo-button {
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
+    -2px -2px 4px rgba(255, 255, 255, 0.02);
+}
+
+.neo-button:hover {
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3),
+    -1px -1px 2px rgba(255, 255, 255, 0.02);
+}
+
+/* Custom scrollbar for the terminal */
+.terminal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-scroll::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+.terminal-scroll::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+.terminal-scroll::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
