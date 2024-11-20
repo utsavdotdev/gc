@@ -14,6 +14,8 @@ This is a CLI tool that helps you write better commit messages.
     - This shows the list of commit messages and ask you to select the best one.
     - There will be sub-options like rewrite, accept with directly commenting, accept with copy to clipboard and reject.
  - `gc help` - Display help for a command
+ - `gc setup` - Setup the configuration for the auto-suggestion
+
 
 
 # Workflow
