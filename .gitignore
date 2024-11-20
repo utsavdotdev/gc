@@ -1,12 +1,14 @@
 # Ignore macOS system files
-.DS_Store
+.DS_Store   
 
 # Ignore environment variable files
-/gc-api/.env.*
+/api/.env.*
 
 # Ignore build output directories
-/gc-api/build/
+/api/build/
 
 # Ignore node_modules folders
-/gc-cli/node_modules/
-/gc-api/node_modules/
+/api/node_modules/
+/web/node_modules/
+/cli/node_modules/
+

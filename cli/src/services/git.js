@@ -1,5 +1,4 @@
 import simpleGit from 'simple-git';
-import chalk from 'chalk';
 import { logger } from '../utils/logger.js';
 
 // Initialize git client
@@ -8,7 +7,8 @@ const git = simpleGit();
 // Get staged changes diff
 export const getStagedDiff = async () => {
   try {
-    const diff = await simpleGit().diff(['--cached']);
+    // run the git add . command if no files are staged
+    const diff = await git.diff(['--cached']);
     
     if (!diff.trim()) {
       throw new Error(
@@ -21,9 +21,6 @@ export const getStagedDiff = async () => {
     
     return diff;
   } catch (error) {
-    if (error.message.includes('No staged changes found')) {
-      throw error; // Throw our custom error with helpful message
-    }
     throw new Error(`Failed to get staged changes: ${error.message}`);
   }
 };

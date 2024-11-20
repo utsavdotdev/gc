@@ -31,12 +31,7 @@ export const handleNewCommand = async () => {
     const diff = await getStagedDiff();
     
     logger.step(2, 4, 'Generating commit suggestions');
-    // const messages = await generateCommitMessages(diff);
-    const messages = [
-      'feat: add user authentication system',
-      'fix: resolve memory leak in background tasks',
-      'docs: update API documentation with new endpoints'
-    ];
+    const messages = await generateCommitMessages(diff);
     
     logger.step(3, 4, 'Awaiting selection');
     const selectedMessage = await selectCommitMessage(messages);

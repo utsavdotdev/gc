@@ -15,8 +15,12 @@
     "chalk": "^4.1.2",
     "clipboardy": "^3.0.0",
     "commander": "^11.0.0",
+    "fs": "^0.0.1-security",
     "inquirer": "^8.2.5",
     "ora": "^5.4.1",
-    "simple-git": "^3.19.0"
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "simple-git": "^3.19.0",
+    "url": "^0.11.4"
   }
 }
