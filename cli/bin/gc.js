@@ -15,6 +15,7 @@ const initializeCLI = () => {
   program
     .command("new")
     .description("Generate new commit messages using AI")
+    .option('-c, --custom', 'Write custom commit message directly')
     .action(handleNewCommand);
   
   program

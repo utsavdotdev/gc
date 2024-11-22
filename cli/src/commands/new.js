@@ -1,8 +1,9 @@
 import { logger } from '../utils/logger.js';
 import { generateCommitMessages } from '../services/ai.js';
 import { getStagedDiff, commitChanges } from '../services/git.js';
-import { selectCommitMessage, selectCommitAction, editCommitMessage } from '../utils/prompts.js';
+import { selectCommitMessage, selectCommitAction, editCommitMessage, formatCommitType } from '../utils/prompts.js';
 import { copyToClipboard } from '../services/clipboard.js';
+import inquirer from 'inquirer';
 
 // Process the selected action
 const handleAction = async (message, action) => {
@@ -25,8 +26,24 @@ const handleAction = async (message, action) => {
 };
 
 // Main command handler
-export const handleNewCommand = async () => {
+export const handleNewCommand = async (options) => {
   try {
+    // If custom flag is present, skip AI generation
+    if (options.custom) {
+      const { customMessage } = await inquirer.prompt([
+        {
+          type: "input",
+          name: "customMessage",
+          message: "Enter your commit message:",
+          validate: (input) =>
+            input.length > 0 || "Commit message cannot be empty",
+        },
+      ]);
+      const structuredMessage = await formatCommitType(customMessage);
+      const action = await selectCommitAction();
+      return await handleAction(structuredMessage, action);
+    }
+
     logger.step(1, 4, 'Checking staged changes');
     const diff = await getStagedDiff();
     

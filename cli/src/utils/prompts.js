@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import { config } from '../utils/config.js';
 
-const formatCommitType = async (message) => {
+export const formatCommitType = async (message) => {
   const { type } = await inquirer.prompt([{
     type: 'list',
     name: 'type',
@@ -33,11 +33,7 @@ export const selectCommitMessage = async (messages) => {
         short: msg.substring(0, 50) + '...'
       })),
       {
-        name: 'Regenerate Suggestions',
-        value: 'regenerate'
-      },
-      {
-        name: 'None of these (write my own)',
+        name: '[None of these (write my own)]',
         value: 'custom'
       }
     ],
