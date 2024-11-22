@@ -32,7 +32,7 @@ export const logger = {
   error: (message, error) => {
     if (shouldLog('ERROR')) {
       console.error(chalk.red(`✗ ${message}`));
-      if (error && shouldLog('DEBUG')) {
+      if (error) {
         console.error(error);
       }
     }

@@ -2,8 +2,7 @@
 
 import { Command } from "commander";
 import { handleNewCommand } from "../src/commands/new.js";
-import { handleSetupCommand } from "../src/commands/setup.js";
-import { handleSuggestCommand } from "../src/commands/suggest.js";
+import {handleSetKeyCommand} from "../src/commands/set-key.js"
 import { showHelp } from "../src/commands/help.js";
 
 const program = new Command();
@@ -17,16 +16,11 @@ const initializeCLI = () => {
     .command("new")
     .description("Generate new commit messages using AI")
     .action(handleNewCommand);
-
+  
   program
-    .command("setup")
-    .description("Setup the CLI")
-    .action(handleSetupCommand);
-
-  program
-    .command("suggest")
-    .description("Generate commit suggestions using AI")
-    .action(handleSuggestCommand);
+    .command("set-key <apiKey>")
+    .description("Set OpenAI API key")
+    .action(handleSetKeyCommand);
 
   program
     .command("help")

@@ -16,6 +16,7 @@
     "clipboardy": "^3.0.0",
     "commander": "^11.0.0",
     "fs": "^0.0.1-security",
+    "groq-sdk": "^0.8.0",
     "inquirer": "^8.2.5",
     "ora": "^5.4.1",
     "os": "^0.1.2",

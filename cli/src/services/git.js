@@ -1,5 +1,5 @@
-import simpleGit from 'simple-git';
-import { logger } from '../utils/logger.js';
+import simpleGit from "simple-git";
+import { logger } from "../utils/logger.js";
 
 // Initialize git client
 const git = simpleGit();
@@ -7,19 +7,37 @@ const git = simpleGit();
 // Get staged changes diff
 export const getStagedDiff = async () => {
   try {
-    // run the git add . command if no files are staged
     const diff = await git.diff(['--cached']);
     
-    if (!diff.trim()) {
+    // Split diff into separate files
+    const files = diff.split('diff --git');
+    
+    // Filter out unnecessary files
+    const filteredFiles = files.filter(file => {
+      const skipPatterns = [
+        'node_modules/',
+        'package-lock.json',
+        'yarn.lock',
+        'dist/',
+        'build/'
+      ];
+      return !skipPatterns.some(pattern => file.includes(pattern));
+    });
+
+    const formattedDiff = filteredFiles.length 
+      ? 'diff --git' + filteredFiles.join('diff --git')
+      : '';
+
+    if (!formattedDiff.trim()) {
       throw new Error(
-        'No staged changes found.\n' +
-        'Please stage your changes first using:\n' +
-        '  git add <file>    - to stage specific files\n' +
-        '  git add .         - to stage all changes'
+        "No staged changes found.\n" +
+        "Please stage your changes first using:\n" +
+        "  git add <file>    - to stage specific files\n" +
+        "  git add .         - to stage all changes"
       );
     }
-    
-    return diff;
+
+    return formattedDiff;
   } catch (error) {
     throw new Error(`Failed to get staged changes: ${error.message}`);
   }
