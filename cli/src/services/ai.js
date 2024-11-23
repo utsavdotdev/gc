@@ -44,29 +44,33 @@ export const generateCommitMessages = async (gitDiff) => {
 };
 
 const cleanAiOutput = (output) => {
-  let cleaned = output.replace(/```(?:json)?\s*([\s\S]*?)```/g, "$1");
-
-  cleaned = cleaned.replace(/`/g, "");
-
-  cleaned = cleaned
-    .replace(/\\"/g, '"')
-    .replace(/^"(.*)"$/, "$1")
-    .replace(/^json\s*/i, "")
-    .trim();
+  if (typeof output === "object") {
+    return Array.isArray(output) ? output : [output];
+  }
 
   try {
-    return JSON.parse(cleaned);
+    // Try parsing as JSON first
+    const parsed = JSON.parse(output);
+    return Array.isArray(parsed) ? parsed : [parsed];
   } catch (e) {
-    try {
-      if (!cleaned.startsWith("[") && cleaned.includes("{")) {
-        return JSON.parse(`[${cleaned}]`);
-      }
-      if (!cleaned.startsWith("{")) {
-        return JSON.parse(`{${cleaned}}`);
-      }
-      throw e;
-    } catch (error) {
-      throw error;
-    }
+    // Split and clean the output
+    const commits = output
+      .split(/\n|(?=\d+\.)/)  // Split on newlines or numbered items
+      .map(line => line.trim())
+      .filter(Boolean)  // Remove empty lines
+      .map(line => {
+        // Extract commit message, handling various formats
+        const message = line
+          .replace(/^\d+\.\s*/, '')  // Remove leading numbers
+          .replace(/^{commit:\s*["']?/, '')  // Remove {commit: prefix
+          .replace(/["'}]\s*}$/, '')  // Remove trailing quotes and }
+          .replace(/^commit:\s*["']?/, '')  // Remove commit: prefix
+          .replace(/["']$/, '')  // Remove trailing quotes
+          .trim();
+
+        return { commit: message };
+      });
+
+    return commits.length ? commits : [{ commit: output.trim() }];
   }
 };

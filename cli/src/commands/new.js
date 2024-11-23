@@ -49,7 +49,7 @@ export const handleNewCommand = async (options) => {
     
     logger.step(2, 4, 'Generating commit suggestions');
     const messages = await generateCommitMessages(diff);
-    
+    console.log(messages);
     logger.step(3, 4, 'Awaiting selection');
     const selectedMessage = await selectCommitMessage(messages);
     const action = await selectCommitAction();
