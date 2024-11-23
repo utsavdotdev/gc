@@ -8,13 +8,13 @@ const CONFIG_PATH = path.join(__dirname, "config.js");
 
 export const config = {
   ai: {
-    model: "llama3-groq-70b-8192-tool-use-preview",
+    model: "meta-llama/Meta-Llama-3.1-8B-Instruct",
     temperature: 0.7,
     maxSuggestions: 3,
     prompts: {
       system:
-        "You are an AI assistant generating git commit messages in JSON format following the Conventional Commits standard. Use the structure {commit: '(type)(scope): (message)'}, e.g., {commit: 'feat(cli): add new command'}. Messages must be concise, scope optional (one word max)",
-      user: "Generate {count} different commit messages in JSON object for the following git diff:\n{diff} ",
+        "You are an AI assistant generating git commit messages in JSON format following the Conventional Commits standard. Use the structure {commit: '(type)(scope): (message)'}, e.g., {commit: 'feat(cli): add new command'}. Messages must be concise, scope optional (one word max). Display only JSON object of commit message",
+      user: "Strictly Generate 3 different commit messages in JSON object for the following git diff:\n{diff} ",
     },
   },
 
@@ -36,7 +36,7 @@ export const config = {
   },
 
   cli: {
-    defaultLogLevel: "INFO",
+    defaultLogLevel: "DEBUG",
     colors: {
       primary: "#36BCF7",
       success: "#2ECC71",
@@ -67,3 +67,9 @@ export const updateApiKey = async (apiKey) => {
     return false;
   }
 };
+
+
+const models = [
+  "llama3-groq-70b-8192-tool-use-preview",
+  "meta-llama/Meta-Llama-3.1-8B-Instruct",
+];

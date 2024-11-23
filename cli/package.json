@@ -12,9 +12,11 @@
     "start": "node bin/gc.js"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "chalk": "^4.1.2",
     "clipboardy": "^3.0.0",
     "commander": "^11.0.0",
+    "dotenv": "^16.4.5",
     "fs": "^0.0.1-security",
     "groq-sdk": "^0.8.0",
     "inquirer": "^8.2.5",
