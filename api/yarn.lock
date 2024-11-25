@@ -611,13 +611,6 @@ js-yaml@^4.1.0:
   dependencies:
     argparse "^2.0.1"
 
-json-as@0.9.21:
-  version "0.9.21"
-  resolved "https://registry.yarnpkg.com/json-as/-/json-as-0.9.21.tgz#cde244db68b3bd316ee5da45c6996da0e8e5ac4f"
-  integrity sha512-f7VWuRrS5jlZtN0XXHrLDdRNDixIscyPUKmn0lkxIA4YxkKvOEUYTIeggFBtT1FwrZcRN5F/SjDVrQ+7DkAnPQ==
-  dependencies:
-    as-virtual "^0.2.0"
-
 json-as@^0.9.26:
   version "0.9.26"
   resolved "https://registry.yarnpkg.com/json-as/-/json-as-0.9.26.tgz#49a2ca3059e77626b2eedef10609509c929a95cf"

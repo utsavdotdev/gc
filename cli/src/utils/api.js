@@ -18,7 +18,7 @@ const fetchGraphQL = async (query, variables = {}) => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-
+    
     const data = await response.json();
 
     if (data.errors) {
@@ -27,7 +27,6 @@ const fetchGraphQL = async (query, variables = {}) => {
 
     return data.data;
   } catch (error) {
-    console.error("Error fetching GraphQL:", error);
     throw error;
   }
 };

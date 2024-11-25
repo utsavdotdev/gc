@@ -1,14 +1,15 @@
-import { models } from "@hypermode/modus-sdk-as";
+import {  models } from "@hypermode/modus-sdk-as";
 import {
   OpenAIChatModel,
   SystemMessage,
   UserMessage,
+  ResponseFormat,
 } from "@hypermode/modus-sdk-as/models/openai/chat";
-
-
+import { JSON } from "json-as";
 
 
 const modelName: string = "text-generator";
+
 
 export function generateCommitMessage(
   instruction: string,
@@ -21,10 +22,8 @@ export function generateCommitMessage(
   ]);
 
   input.temperature = 0.7;
-  input.responseFormat = {
-    type:"json_object",
-    jsonSchema:null
-  };
+  input.responseFormat = ResponseFormat.Json;
+
   const output = model.invoke(input);
   return output.choices[0].message.content.trim();
 }

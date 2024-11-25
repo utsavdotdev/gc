@@ -28,9 +28,9 @@ export const selectCommitMessage = async (messages) => {
     message: 'Select a commit message:',
     choices: [
       ...messages.map((msg, index) => ({
-        name: `${index + 1}. ${msg}`,
-        value: msg,
-        short: msg.substring(0, 50) + '...'
+        name: `${index + 1}. ${msg.commit}`,
+        value: msg.commit,
+        short: msg.commit.substring(0, 50) + '...'
       })),
       {
         name: '[None of these (write my own)]',
