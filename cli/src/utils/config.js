@@ -1,11 +1,3 @@
-import fs from "fs/promises";
-import path from "path";
-import { fileURLToPath } from "url";
-import { logger } from "./logger.js";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CONFIG_PATH = path.join(__dirname, "config.js");
-
 export const config = {
   ai: {
     model: "meta-llama/Meta-Llama-3.1-8B-Instruct",
@@ -44,32 +36,4 @@ export const config = {
       warning: "#F1C40F",
     },
   },
-
-  // API key will be set here
-  apiKey: "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",
 };
-
-// Function to update API key in config file
-export const updateApiKey = async (apiKey) => {
-  try {
-    const configContent = await fs.readFile(CONFIG_PATH, "utf-8");
-
-    // Update only the apiKey in the config
-    const updatedContent = configContent.replace(
-      /apiKey:.*(?=,|\n)/,
-      `apiKey: '${apiKey}'`
-    );
-
-    await fs.writeFile(CONFIG_PATH, updatedContent, "utf-8");
-    return true;
-  } catch (error) {
-    logger.error("Failed to update API key", error);
-    return false;
-  }
-};
-
-
-const models = [
-  "llama3-groq-70b-8192-tool-use-preview",
-  "meta-llama/Meta-Llama-3.1-8B-Instruct",
-];
