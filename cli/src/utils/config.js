@@ -28,7 +28,7 @@ export const config = {
   },
 
   cli: {
-    defaultLogLevel: "DEBUG",
+    defaultLogLevel: "INFO",
     colors: {
       primary: "#36BCF7",
       success: "#2ECC71",

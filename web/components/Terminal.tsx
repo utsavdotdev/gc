@@ -47,7 +47,6 @@ export function Terminal() {
               <ul className="mt-2 space-y-2 text-gray-200">
                 <li>• Generate AI-assisted commit messages (gc new)</li>
                 <li>• Smart clipboard integration for copying messages</li>
-                <li>• Auto-suggestions while using git commit -m</li>
                 <li>• Direct push to remote repositories</li>
                 <li>• Customizable commit message templates</li>
                 <li>• Support for conventional commits</li>
@@ -73,12 +72,6 @@ export function Terminal() {
                   <p className="text-yellow-400">gc help</p>
                   <p className="text-gray-200 ml-4">
                     Display detailed help information for any command.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-yellow-400">gc setup</p>
-                  <p className="text-gray-200 ml-4">
-                    Configure auto-suggestions for your terminal (Bash/Zsh).
                   </p>
                 </div>
               </div>

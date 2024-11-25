@@ -29,7 +29,7 @@ export const generateCommitMessages = async (gitDiff) => {
     spinner.succeed("Generated commit messages");
 
     const jsonMsg = data?.generateCommitMessage;
-    const parsedMsg = cleanAiOutput(jsonMsg);
+    const parsedMsg = cleanAiOutput(jsonMsg); 
     const commitMsgs = parsedMsg;
     return commitMsgs;
   } catch (error) {
