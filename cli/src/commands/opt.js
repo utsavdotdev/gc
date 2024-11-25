@@ -8,7 +8,12 @@ const CONFIG_PATH = path.resolve(process.cwd(), "cli/src/utils/config.js");
 export const handleOptOutCommand = () => {
   try {
     // Update the config file to set data-collection to false
-    const updatedConfig = { ...config, "data-collection": false };
+    const updatedConfig = { ...config, 
+      ai:{
+        ...config.ai,
+        "dataCollection": false
+      }
+     };
 
     const configContent = `export const config = ${JSON.stringify(
       updatedConfig,
@@ -26,7 +31,12 @@ export const handleOptOutCommand = () => {
 export const handleOptInCommand = () => {
   try {
     // Update the config file to set data-collection to true
-    const updatedConfig = { ...config, "data-collection": true };
+    const updatedConfig = { ...config, 
+      ai:{
+        ...config.ai,
+        "dataCollection": true
+      }
+     };
 
     const configContent = `export const config = ${JSON.stringify(
       updatedConfig,

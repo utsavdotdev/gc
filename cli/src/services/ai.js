@@ -4,9 +4,9 @@ import { config } from "../utils/config.js";
 import fetchGraphQL from "../utils/api.js";
 
 const INVOKE_MODEL = `
-  query GenerateCommitMessage($instruction: String!, $prompt: String!) {
-    generateCommitMessage(instruction: $instruction, prompt: $prompt)
-  }
+ query GenerateCommitMessage($instruction: String!, $prompt: String!, $data: String!, $opt: Boolean!){
+  generateCommitMessage(instruction: $instruction, prompt: $prompt, data: $data, opt: $opt)
+}
 `;
 
 export const generateCommitMessages = async (gitDiff) => {
@@ -24,12 +24,14 @@ export const generateCommitMessages = async (gitDiff) => {
     const data = await fetchGraphQL(INVOKE_MODEL, {
       instruction: config.ai.prompts.system,
       prompt: config.ai.prompts.user.replace("{diff}", gitDiff),
+      data: gitDiff,
+      opt: config.ai.dataCollection,
     });
 
     spinner.succeed("Generated commit messages");
 
     const jsonMsg = data?.generateCommitMessage;
-    const parsedMsg = cleanAiOutput(jsonMsg); 
+    const parsedMsg = cleanAiOutput(jsonMsg);
     const commitMsgs = parsedMsg;
     return commitMsgs;
   } catch (error) {
@@ -44,6 +46,10 @@ const cleanAiOutput = (input) => {
   let cleanInput = input.trim();
   if (cleanInput.startsWith("```") && cleanInput.endsWith("```")) {
     cleanInput = cleanInput.slice(3, -3).trim();
+  }
+
+  if (typeof cleanInput === "string") {
+    cleanInput = cleanInput.replace(/^```json\s*/, "").replace(/```\s*$/, "");
   }
 
   // Step 2: Normalize input by replacing single quotes with double quotes

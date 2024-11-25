@@ -46,7 +46,6 @@ export const handleNewCommand = async (options) => {
 
     logger.step(1, 4, 'Checking staged changes');
     const diff = await getStagedDiff();
-    console.log(diff);
     
     logger.step(2, 4, 'Generating commit suggestions');
     const messages = await generateCommitMessages(diff);
