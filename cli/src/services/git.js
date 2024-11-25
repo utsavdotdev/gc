@@ -8,7 +8,15 @@ const git = simpleGit();
 export const getStagedDiff = async () => {
   try {
     const diff = await git.diff(['--cached']);
-    
+    if (!diff) {
+      logger.warn(
+        "No staged changes found.\n" +
+        "Please stage your changes first using:\n" +
+        "  git add <file>    - to stage specific files\n" +
+        "  git add .         - to stage all changes"
+      );
+      process.exit(1);
+    }
     // Split diff into separate files
     const files = diff.split('diff --git');
     
