@@ -1,4 +1,5 @@
 const API_URL = process.env.MODUS_API_URL || "http://localhost:8686/graphql";
+const token = process.env.API_KEY;
 
 const fetchGraphQL = async (query, variables = {}) => {
   try {
@@ -7,7 +8,7 @@ const fetchGraphQL = async (query, variables = {}) => {
       headers: {
         "Content-Type": "application/json",
         // Add any authentication headers if needed
-        // 'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         query,
