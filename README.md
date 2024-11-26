@@ -52,7 +52,7 @@ gc --help
 
 ## Requirements
 
-- Node.js 18.0.0 or higher
+- Node.js 16.0.0 or higher
 - Git installed on your system
 
 ## Contributing
