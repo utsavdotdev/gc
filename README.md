@@ -1,19 +1,69 @@
-# gc - Git Commit Suggestion CLI
-This is a CLI tool that helps you write better commit messages.
+# 🚀 gc - AI-Powered Git Commit Message Generator
 
-# Features
-- [x] Generate the commit message(`gc new`)
-- [x] Add the commit message to the clipboard
-- [x] Display variance of the commit message
-- [x] Directly push the commit to the remote repository
-- [x] Display help for a command
-- [x] Implement commands to let users choose whether to permit or deny data collection.
+## Overview
 
-# Commands 
+[`gc`](https://gc-cli.vercel.app) is an intelligent CLI tool that revolutionizes your Git commit workflow by generating meaningful, descriptive commit messages using AI technology.
 
- - `gc new` - Generate the commit message
-    - This shows the list of commit messages and ask you to select the best one.
-    - There will be sub-options like rewrite, accept with directly commenting, accept with copy to clipboard and reject.
- - `gc help` - Display help for a command
- - `gc opt-in` - Permit data collection
- - `gc opt-out` - Deny data collection
+## Features
+
+- **AI-Powered Commit Messages**: Automatically generate contextually relevant commit descriptions
+- **Clipboard Integration**: Easily copy commit messages
+- **Flexible Commit Options**: 
+  - Select from multiple AI-generated suggestions
+  - Custom message writing
+  - Direct repository commit
+- **Privacy Controls**: Opt-in/out of anonymous data collection
+- **User-Friendly Interface**: Simple, intuitive commands
+
+## 🛠 Installation
+   
+```bash
+npm install -g gc 
+```
+
+## Commands
+
+### 1. Generate Commit Message
+```bash
+gc new
+```
+- Generates AI-powered commit message suggestions
+- Interactive selection process
+- Options to rewrite, accept, or copy to clipboard
+
+
+### 2. Custom Commit Message
+```bash
+gc new -c
+```
+- Write your own commit message directly
+
+### 3. Data Collection Preferences
+```bash
+gc opt-in # Enable anonymous usage data collection
+gc opt-out # Disable anonymous usage data collection
+```
+
+### 4. Help
+```bash
+gc --help
+```
+- Display comprehensive help information
+
+## Requirements
+
+- Node.js 18.0.0 or higher
+- Git installed on your system
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`gc new`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+**Made with ❤️ by @utsavdotdev**
