@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { Check, Copy } from "lucide-react";
 
 const COMMANDS = [
-  { command: "yarn global add gc", label: "Using yarn" },
-  { command: "npm install -g gc", label: "Using npm" },
+  { command: "yarn global add @utsavdotdev/gc", label: "Using yarn" },
+  { command: "npm install -g @utsavdotdev/gc", label: "Using npm" },
 ];
 
 export function InstallBox() {

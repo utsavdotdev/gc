@@ -3,6 +3,7 @@
 
 # Ignore environment variable files
 /api/.env.*
+/cli/.env
 
 # Ignore build output directories
 /api/build/

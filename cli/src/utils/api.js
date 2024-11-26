@@ -1,5 +1,6 @@
-const API_URL = process.env.MODUS_API_URL || "http://localhost:8686/graphql";
-const token = process.env.API_KEY;
+const API_URL = "https://gcs-wcc.hypermode.app/graphql";
+const token =
+  "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjM1NDY4NTEsImlhdCI6MTczMjAxMDg1MSwiaXNzIjoiaHlwZXJtb2RlLmNvbSIsInN1YiI6ImFway0wMTkzNDNlNC0zYjdlLTc0NzgtOTM4YS0zN2UxNWI3MzFiMTMifQ.rk9O08lzF5riblpVY8Wv57EEMzRY2Pd2T9t_o9LRynESqZTNdp5VTtf7HObuK2h9Z65TOsde6gXoDEfSNxZMQA";
 
 const fetchGraphQL = async (query, variables = {}) => {
   try {
