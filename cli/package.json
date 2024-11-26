@@ -1,11 +1,11 @@
 {
-  "name": "gc",
-  "version": "1.0.0",
+  "name": "@utsavdotdev/gc",
+  "version": "1.0.2",
   "description": "AI-powered Git commit message generator",
   "main": "bin/gc.js",
   "type": "module",
   "bin": {
-    "gc": "./bin/gc.js"
+    "gc": "bin/gc.js"
   },
   "license": "MIT",
   "scripts": {
