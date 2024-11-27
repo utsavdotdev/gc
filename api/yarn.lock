@@ -268,6 +268,11 @@ as-virtual@^0.2.0:
   resolved "https://registry.yarnpkg.com/as-virtual/-/as-virtual-0.2.0.tgz#f498e22ba5291a61f7ce40cfd940e68c3dc587ab"
   integrity sha512-zI+8VwD6BPUtXrxs4R7v2N+59OAIBRwiiv9nGIMwcQ/w/lspyaualMqM7yok3jMRglKqLkfOx+dCJimeflEJcA==
 
+assemblyscript-json@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/assemblyscript-json/-/assemblyscript-json-1.1.0.tgz#49d38bc21f1ac36f2887528a35de6cf7d59c17be"
+  integrity sha512-UbE8ts8csTWQgd5TnSPN7MRV9NveuHv1bVnKmDLoo/tzjqxkmsZb3lu59Uk8H7SGoqdkDSEE049alx/nHnSdFw==
+
 assemblyscript-prettier@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/assemblyscript-prettier/-/assemblyscript-prettier-3.0.1.tgz#e0322f680655b96330c1252a966dc368ad9364d9"
@@ -275,7 +280,7 @@ assemblyscript-prettier@^3.0.1:
   dependencies:
     assemblyscript "~0.27.0"
 
-assemblyscript@^0.27.30, assemblyscript@~0.27.0:
+assemblyscript@^0.27.31, assemblyscript@~0.27.0:
   version "0.27.31"
   resolved "https://registry.yarnpkg.com/assemblyscript/-/assemblyscript-0.27.31.tgz#07412b1bc42c67f78080dbaddca030ab74d3b9b2"
   integrity sha512-Ra8kiGhgJQGZcBxjtMcyVRxOEJZX64kd+XGpjWzjcjgxWJVv+CAQO0aDBk4GQVhjYbOkATarC83mHjAVGtwPBQ==

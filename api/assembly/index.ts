@@ -1,20 +1,18 @@
-import {  models } from "@hypermode/modus-sdk-as";
+import { models } from "@hypermode/modus-sdk-as";
 import {
   OpenAIChatModel,
   SystemMessage,
   UserMessage,
   ResponseFormat,
 } from "@hypermode/modus-sdk-as/models/openai/chat";
-
-
+export {Message} from './classes';
 const modelName: string = "text-generator";
-
 
 export function generateCommitMessage(
   instruction: string,
   prompt: string,
-  data:string,
-  opt:boolean
+  data: string,
+  opt: boolean,
 ): string {
   const model = models.getModel<OpenAIChatModel>(modelName);
   const input = model.createInput([
@@ -26,8 +24,8 @@ export function generateCommitMessage(
   input.responseFormat = ResponseFormat.Json;
 
   const output = model.invoke(input);
-  if(opt){
-    console.log("Data is saved in Dgraph")
+  if (opt) {
+    console.log("Data is saved in Dgraph");
   }
   return output.choices[0].message.content.trim();
 }
