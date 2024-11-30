@@ -10,7 +10,7 @@ const program = new Command();
 
 const initializeCLI = () => {
   program
-    .version("1.0.0")
+    .version("1.0.4")
     .description("AI-powered Git commit message generator");
 
   program

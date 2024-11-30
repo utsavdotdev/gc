@@ -5,7 +5,8 @@ import {
   UserMessage,
   ResponseFormat,
 } from "@hypermode/modus-sdk-as/models/openai/chat";
-export {Message} from './classes';
+
+
 const modelName: string = "text-generator";
 
 export function generateCommitMessage(
@@ -29,3 +30,8 @@ export function generateCommitMessage(
   }
   return output.choices[0].message.content.trim();
 }
+
+
+
+
+

@@ -15,10 +15,6 @@ ${chalk.yellow('Options:')}
 ${chalk.yellow('Examples:')}
   $ gc new           Generate commit messages for staged changes
   $ gc help          Display this help message
-
-${chalk.yellow('Environment Variables:')}
-  OPENAI_API_KEY     Your OpenAI API key
-  LOG_LEVEL          Logging level (DEBUG|INFO|WARN|ERROR)
 `;
 
 export const showHelp = () => {

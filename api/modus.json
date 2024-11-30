@@ -9,16 +9,16 @@
   },
   "models": {
     "text-generator": {
-      "sourceModel": "meta-llama/Meta-Llama-3.1-8B-Instruct", 
-      "provider": "hugging-face", 
+      "sourceModel": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "provider": "hugging-face",
       "connection": "hypermode"
     }
   },
   "connections": {
-    "gc-dgraph": {
-      "type": "dgraph",
-      "grpcTarget": "https://blue-surf-1350043.us-east-1.aws.cloud.dgraph.io/graphql",
-      "key":"{{DGRAPH_API_KEY}}"
+    "gc-graphql": {
+      "type": "http",
+      "endpoint": "https://blue-surf-1350043.us-east-1.aws.cloud.dgraph.io/graphql",
+      "key":"YTA2YjcyNDM2YjU4OGE0N2NkMzExNzhjYWFlMjRiODQ="
     }
   }
 }

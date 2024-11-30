@@ -1,6 +1,6 @@
 {
   "name": "@utsavdotdev/gc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "AI-powered Git commit message generator",
   "main": "bin/gc.js",
   "type": "module",
